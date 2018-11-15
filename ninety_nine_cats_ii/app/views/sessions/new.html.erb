@@ -8,12 +8,12 @@
       <% end %>
     <% end %>
 
-    <form action="session_url" method="post">
+    <form action="<%= session_url %>" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
       <label>
         <h3>Username</h3>
-        <input type="text" name="user[user_name]" value="<%= @user.username %>">
+        <input type="text" name="user[user_name]">
       </label>
       <br>
       <label>
