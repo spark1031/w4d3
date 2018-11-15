@@ -1,6 +1,6 @@
 <section class="page">
   <div class="centered-box">
-    <h1>New User</h1>
+    <h1>Login</h1>
 
     <% if flash.now[:errors] %>
       <% flash.now[:errors].each do |error| %>
@@ -8,10 +8,9 @@
       <% end %>
     <% end %>
 
-    <form action="users_url" method="post">
+    <form action="session_url" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-      <h1>Sign Up</h1>
       <label>
         <h3>Username</h3>
         <input type="text" name="user[user_name]" value="<%= @user.username %>">
@@ -19,15 +18,11 @@
       <br>
       <label>
         <h3>Password</h3>
-        <input type="password" name="user[password]" value="<%= @user.password %>">
+        <input type="password" name="user[password]">
       </label>
       <br>
 
-      <input type="submit" value="Sign Up">
+      <input type="submit" value="Login">
     </form>
   </div>
 </section>
-
-
-<!-- for our password input-tag: do we need something in value=?
-the BlueBird app had value="" but solutions for 99cats says above. -->
