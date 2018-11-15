@@ -1,5 +1,12 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+
   helper_method :current_user
+
+  private
+  def require_no_user!
+    redirect_to cats_url unless current_user.nil?
+  end
 
   def login_user!(user)
     session[:session_token] = user.reset_session_token!
@@ -16,4 +23,6 @@ class ApplicationController < ActionController::Base
     end
     @current_user = nil
   end
+
+
 end

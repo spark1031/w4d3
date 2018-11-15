@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :require_no_user! #what does this do?? it was in solutions
+  before_action :require_no_user! #what does this do?? it was in solutions
 
   def new
     @user = User.new

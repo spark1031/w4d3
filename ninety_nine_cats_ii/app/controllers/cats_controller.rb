@@ -15,7 +15,7 @@ class CatsController < ApplicationController
   end
 
   def create
-    @cat = Cat.new(cat_params)
+    @cat = current_user.cats.new(cat_params) #how does this ensure that user_id is set to current_user's id?
     if @cat.save
       redirect_to cat_url(@cat)
     else
